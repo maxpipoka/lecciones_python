@@ -1,8 +1,11 @@
-import unittest
-from lecciones_python.leccion_02.main import VehicleInfo
+from unittest import TestCase
+
+from leccion_02.main import VehicleInfo
+# from leccion_02 import VehicleInfo
+# from lecciones_python.leccion_02.main import VehicleInfo
 
 
-class TestVehicleInfo(unittest.TestCase):
+class TestVehicleInfo(TestCase):
     def test_non_electric_vehicle(self):
         # create a vehicle info object
         v = VehicleInfo("BMW", False, 10000)
@@ -77,5 +80,5 @@ class TestVehicleInfo(unittest.TestCase):
         self.assertRaises(ValueError, v.can_lease, -1)
         # devuelve verdadero si devuelve error del tipo ValueError, al llamar la funcion pasandole ese valor.
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
