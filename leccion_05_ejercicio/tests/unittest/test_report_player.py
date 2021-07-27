@@ -2,7 +2,7 @@ from unittest import TestCase
 from unittest.mock import Mock
 
 
-from leccion_5_ejercicio import (
+from leccion_05_ejercicio import (
     Category,
     MissionType,
     Player,
