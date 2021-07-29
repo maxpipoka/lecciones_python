@@ -58,8 +58,9 @@ class ReportPlayer:
 
     def get_percentage_by_mission_type(self, mission_type: MissionType) -> float:
         """Devuelve el porcentaje de asistencia por cada tipo de misión."""
+        return (len(self.assists_by_mission_type) * 100) / len(self.total_by_mission_type)
 
-        pass
+        # pass
 
     @property
     def weighted_percentage(self) -> float:
