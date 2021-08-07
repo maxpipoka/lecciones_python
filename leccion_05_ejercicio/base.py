@@ -76,15 +76,10 @@ class ReportPlayer:
         # print(assists)
         ponderado = 0
         subtotales_porcentajes = 0
-        # for i in range(len(assists)):
-        #     ponderado += assists[i][0].weight
-        #     subtotales_porcentajes += self.get_percentage_by_mission_type(assists[i])
-        #     print(ponderado)
-        #     print(subtotales_porcentajes)
+
         for mission_type, assist in assists:
             ponderado += mission_type.weight
             subtotales_porcentajes += self.get_percentage_by_mission_type(mission_type) * mission_type.weight
-            # print(mission_type.weight, assist)
                 
         if ponderado == 0:
             return 0.0
