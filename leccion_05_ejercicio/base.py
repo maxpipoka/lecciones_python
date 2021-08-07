@@ -71,25 +71,25 @@ class ReportPlayer:
     def weighted_percentage(self) -> float:
         """Devuelve el promedio ponderado de los promedios de cada tipo de misión."""
         # hay que convertir los diccionarios assists_by_mission_type y total_by_mission_type a listas para recorrer
-        assists =  list(self.assists_by_mission_type.items())
-        totals = list(self.total_by_mission_type.items())
-        
-        ponderado = assists[0][0].weight
-
+        assists =  self.assists_by_mission_type.items()
+        totals = self.total_by_mission_type.items()
+        # print(assists)
+        ponderado = 0
+        subtotales_porcentajes = 0
+        # for i in range(len(assists)):
+        #     ponderado += assists[i][0].weight
+        #     subtotales_porcentajes += self.get_percentage_by_mission_type(assists[i])
+        #     print(ponderado)
+        #     print(subtotales_porcentajes)
+        for mission_type, assist in assists:
+            ponderado += mission_type.weight
+            subtotales_porcentajes += self.get_percentage_by_mission_type(mission_type) * mission_type.weight
+            # print(mission_type.weight, assist)
+                
         if ponderado == 0:
             return 0.0
-        return self.get_percentage_by_mission_type(assists[0][0]) / ponderado
-        
-        #para recorrer despues
-        # for i in range(len(assists)):
-        #     print(assists[i][0].weight)
-        # print(assists[0])
-        # print(totals)
-        # return self.assists_by_mission_type[MissionType.weight]
+        return round(subtotales_porcentajes / ponderado, 2)
 
-
-
-        
 
     @property
     def total_assist(self) -> int:
